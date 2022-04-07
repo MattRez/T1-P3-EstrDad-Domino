@@ -94,7 +94,7 @@ public class List {
 	}
 	
 	private Piece delPieceIndex() {
-		//get to the index position, set prev.next = current.next, set next.prev = current, return current
+		//get to the index position, set prev.next = current.next, set next.prev = current.prev, return current
 		return null;
 	}
 	

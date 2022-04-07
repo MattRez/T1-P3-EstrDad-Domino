@@ -19,10 +19,10 @@ public class List {
 			begin = node;
 			end = node;
 		} else {
-			System.out.println("Por Favor, Digite uma OpÁ„o: ");
-			System.out.println("1. Adicionar no ComeÁo");
+			System.out.println("Por Favor, Digite uma Op√ß√£o: ");
+			System.out.println("1. Adicionar no Come√ßo");
 			System.out.println("2. Adicionar no Final");
-			System.out.println("3. Adicionar no Õndice");
+			System.out.println("3. Adicionar no √çndice");
 			int opt = scan.nextInt();
 			
 			switch (opt) {
@@ -59,10 +59,10 @@ public class List {
 		if(isEmpty()) {
 			
 		} else {
-			System.out.println("Por Favor, Digite uma OpÁ„o: ");
-			System.out.println("1. Deletar no ComeÁo");
+			System.out.println("Por Favor, Digite uma Op√ß√£o: ");
+			System.out.println("1. Deletar no Come√ßo");
 			System.out.println("2. Deletar no Final");
-			System.out.println("3. Deletar no Õndice");
+			System.out.println("3. Deletar no √çndice");
 			int opt = scan.nextInt();
 			
 			switch (opt) {
@@ -94,7 +94,7 @@ public class List {
 	}
 	
 	private Piece delPieceIndex() {
-		//get to the index position, set prev.next = current.next, return current
+		//get to the index position, set prev.next = current.next, set next.prev = current, return current
 		return null;
 	}
 	
@@ -108,9 +108,9 @@ public class List {
 	
 	public Piece getPiece(Scanner scan) {
 		System.out.println("Buscar Livro: ");
-		System.out.println("1. Buscar o ComeÁo");
+		System.out.println("1. Buscar o Come√ßo");
 		System.out.println("2. Buscar o Final");
-		System.out.println("3. Buscar por Õndice");
+		System.out.println("3. Buscar por √çndice");
 		
 		Piece piece = null;
 		int opt = scan.nextInt();

@@ -19,7 +19,7 @@ public class List {
 			begin = node;
 			end = node;
 		} else {
-			System.out.println("Por Favor, Digite uma Opção: ");
+			System.out.println(":::Adicionar Peça:::");
 			System.out.println("1. Adicionar no Começo");
 			System.out.println("2. Adicionar no Final");
 			System.out.println("3. Adicionar no Índice");
@@ -33,7 +33,7 @@ public class List {
 				addPieceEnd(node);
 				break;
 			case 3:
-				addPieceIndex(node);
+				addPieceIndex(node, index(scan));
 				break;
 			}
 		}
@@ -49,7 +49,7 @@ public class List {
 		end = node;
 	}
 	
-	private void addPieceIndex(Node node) {
+	private void addPieceIndex(Node node, int index) {
 		//get to the index position, set index.prev.next = added, set added.next = index, set index.prev = added
 	}
 	
@@ -59,7 +59,7 @@ public class List {
 		if(isEmpty()) {
 			
 		} else {
-			System.out.println("Por Favor, Digite uma Opção: ");
+			System.out.println(":::Deletar Peça:::");
 			System.out.println("1. Deletar no Começo");
 			System.out.println("2. Deletar no Final");
 			System.out.println("3. Deletar no Índice");
@@ -73,7 +73,7 @@ public class List {
 				delPieceEnd();
 				break;
 			case 3:
-				delPieceIndex();
+				delPieceIndex(index(scan));
 				break;
 			}
 		}
@@ -93,9 +93,11 @@ public class List {
 		return piece;
 	}
 	
-	private Piece delPieceIndex() {
+	private Piece delPieceIndex(int index) {
+		Piece piece = getPieceIndex(index);
+		
 		//get to the index position, set prev.next = current.next, set next.prev = current.prev, return current
-		return null;
+		return piece;
 	}
 	
 	public boolean isEmpty() {
@@ -107,7 +109,7 @@ public class List {
 	}
 	
 	public Piece getPiece(Scanner scan) {
-		System.out.println("Buscar Livro: ");
+		System.out.println(":::Buscar Peça:::");
 		System.out.println("1. Buscar o Começo");
 		System.out.println("2. Buscar o Final");
 		System.out.println("3. Buscar por Índice");
@@ -117,13 +119,13 @@ public class List {
 		
 		switch(opt) {
 		case 1:
-			piece = getPieceBegin();
+			piece = getBegin().getPiece();//maybe this works??? maybe it makes things easier???
 			break;
 		case 2:
 			piece = getPieceEnd();
 			break;
 		case 3:
-			piece = getPieceIndex();
+			piece = getPieceIndex(index(scan));
 			break;
 		}
 		
@@ -138,8 +140,15 @@ public class List {
 		return end.getPiece();
 	}
 	
-	private Piece getPieceIndex() {
-		return null;
+	private Piece getPieceIndex(int index) {
+		Node node = begin;
+		for(int i=0; i<index; i++) {
+			if(i==index) {
+				return null;
+			}
+			
+		}
+		return node.getPiece();
 	}
 	
 	
@@ -154,5 +163,16 @@ public class List {
 	}
 	public void setEnd(Node end) {
 		this.end = end;
+	}
+	
+	static int index(Scanner scan) {
+		System.out.println("Por Favor, Digite o Índice: ");
+		return readInt(scan);
+	}
+	
+	static int readInt(Scanner scan) {
+		int num = scan.nextInt();
+		scan.nextLine();
+		return num;
 	}
 }

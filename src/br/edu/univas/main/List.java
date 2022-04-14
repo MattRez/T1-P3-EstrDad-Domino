@@ -10,20 +10,21 @@ public class List {
 	private Node end;
 	
 	
-	public void addPiece(Scanner scan) {
+	public void addPiece(Piece piece, Scanner scan) {
 		Node node = new Node();
-		Piece piece = new Piece();
 		node.setPiece(piece);
 		
 		if(isEmpty()) {
 			begin = node;
 			end = node;
 		} else {
+			/*
 			System.out.println(":::Adicionar Peça:::");
 			System.out.println("1. Adicionar no Começo");
 			System.out.println("2. Adicionar no Final");
 			System.out.println("3. Adicionar no Índice");
-			int opt = scan.nextInt();
+			*/
+			int opt = 2;
 			
 			switch (opt) {
 			case 1:
@@ -119,7 +120,7 @@ public class List {
 		
 		switch(opt) {
 		case 1:
-			piece = getBegin().getPiece();//maybe this works??? maybe it makes things easier???
+			piece = getPieceBegin();
 			break;
 		case 2:
 			piece = getPieceEnd();
